@@ -2,9 +2,7 @@ PLUGIN.name = "Radio"
 PLUGIN.author = "Black Tea & Zoephix"
 PLUGIN.desc = "You can communicate with other people in distance."
 
-local REQUESTS_CHAT_COLOR = Color(255, 130, 0)
 local RADIO_CHAT_COLOR = Color(100, 255, 50)
-local DEPARTMENTS_CHAT_COLOR = Color(255, 100, 50)
 
 local langkey = "english"
 do
@@ -247,12 +245,6 @@ ix.chat.Register("radio", {
 		local speakEnts = ents.FindInSphere(speaker:GetPos(), speakRange)
 		local speakerInv = schar:GetInventory()
 		local freq
-
-		if (GetGlobalBool("comFailed")) then
-			speaker:ChatPrint("Communication servers are down.")
-
-			return false
-		end
 
 		if (speakerInv) then
 			for k, v in pairs(speakerInv:GetItems()) do
